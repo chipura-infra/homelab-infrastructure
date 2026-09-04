@@ -1,0 +1,9 @@
+services:
+  web:
+    image: nginx:alpine
+    container_name: web_nginx
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./html:/usr/share/nginx/html
