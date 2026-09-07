@@ -1,20 +1,11 @@
-# Infrastructure & Systems Administration Labs
+# Infrastructure as Code & SysAdmin Portfolio Homelab
 
-Production-grade Debian 12 environment setups, Active Directory integration, and containerized services.
+Инфраструктурный стенд (Debian 12 & Windows Server 2022 AD) с фиксацией инцидентов по методологии **Break-Analyze-Fix**.
 
-## Laboratory Modules
+## 📁 Лабораторные работы
 
-| Module | Description | Status | Link |
-| :--- | :--- | :--- | :--- |
-| **Lab 01: Web Stack** | Containerized Nginx web server deployment | Completed | [View Lab Setup](./services/web) |
-| **Lab 02: Active Directory** | Joining Debian 12 host to domain | Pending | *In Progress* |
+* 📁 [**Lab 01: Core Infrastructure & Services**](./labs/lab01-core-services)
+  * Сетевая конфигурация Debian 12, правила `iptables`, Docker Web-сервис и скрипты проверки состояния (`health_check.sh`).
+* 📁 [**Lab 02: Active Directory Integration & Root Cause Analysis**](./labs/lab02-ad-integration)
+  * Интеграция Linux с AD (`homelab.local`), `sssd`, `pam_sss`, `sudoers` и разбор дампов трафика (DNS / Kerberos `pcapng`).
 
-## Repository Architecture
-
-```text
-.
-├── README.md               # Main index
-├── scripts/                # Management scripts
-└── services/               # Laboratory modules
-    └── web/                # Lab 01
-```
