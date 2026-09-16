@@ -1,0 +1,37 @@
+---
+- name: Baseline Linux Server Configuration
+  hosts: all
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Update apt cache and install baseline packages
+      apt:
+        name:
+          - curl
+          - htop
+          - net-tools
+          - vim
+        state: present
+        update_cache: yes
+
+    - name: Ensure admin deployer user exists
+      user:
+        name: deployer
+        shell: /bin/bash
+        state: present
+        create_home: yes
+
+    - name: Deploy dynamic MOTD banner
+      copy:
+        content: |
+          ==================================================
+          Managed by Ansible: Lab 04
+          Hostname: {{ ansible_hostname }}
+          OS Family: {{ ansible_os_family }}
+          IP Address: {{ ansible_default_ipv4.address }}
+          ==================================================
+        dest: /etc/motd
+        owner: root
+        group: root
+        mode: '0644'

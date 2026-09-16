@@ -1,0 +1,27 @@
+services:
+  node01:
+    build: .
+    container_name: target-node-01
+    hostname: node01
+    volumes:
+      - /root/.ssh/id_ed25519.pub:/root/.ssh/authorized_keys:ro
+    networks:
+      ansible-lab-net:
+        ipv4_address: 172.28.0.11
+
+  node02:
+    build: .
+    container_name: target-node-02
+    hostname: node02
+    volumes:
+      - /root/.ssh/id_ed25519.pub:/root/.ssh/authorized_keys:ro
+    networks:
+      ansible-lab-net:
+        ipv4_address: 172.28.0.12
+
+networks:
+  ansible-lab-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
