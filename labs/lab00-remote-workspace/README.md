@@ -13,18 +13,23 @@ This module standardizes a professional headless engineering workflow:
 
 ## Architectural Layout
 
-[Windows 11 Client]
-├── Win32 OpenSSH (~/.ssh/id_ed25519, ~/.ssh/config)
-├── Visual Studio Code (Local Renderer)
-│     └── Remote - SSH Extension
-└── Encrypted Tunnel (TCP Port 22, Ed25519)
-│
-▼
-[Headless Debian Host: debserver (192.168.1.33)]
-├── /usr/sbin/sshd (Hardened OpenSSH Daemon)
-├── ~/.ssh/authorized_keys (Mode 0600)
-├── ~/.vscode-server/ (Remote Extension Node & Tooling)
-└── /root/homelab/ (Git Monorepo with EOL LF enforcement)
+```mermaid
+flowchart TD
+    subgraph Client["Windows 11 Client (Workstation)"]
+        direction TB
+        A["Win32 OpenSSH Client<br/>~/.ssh/id_ed25519 & config"] --> B["Visual Studio Code<br/>Local GUI Renderer"]
+        B --> C["Remote - SSH Extension"]
+    end
+
+    subgraph Server["Headless Debian Host: debserver (192.168.1.33)"]
+        direction TB
+        D["OpenSSH Daemon<br/>/usr/sbin/sshd"] --> E["Key Store<br/>~/.ssh/authorized_keys 0600"]
+        D --> F["Remote Agent<br/>~/.vscode-server/"]
+        F --> G["Workspace Monorepo<br/>/root/homelab LF enforced"]
+    end
+
+    C -- "Encrypted Transport (TCP 22 / Ed25519)" --> D
+```
 
 
 ---
