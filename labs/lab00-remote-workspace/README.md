@@ -15,7 +15,7 @@ This module standardizes a professional headless engineering workflow:
 
 ```text
 [Windows 11 Workstation]
-  ├── Win32 OpenSSH (~/.ssh/id_ed25519, ~/.ssh/config)
+  ├── Windows OpenSSH (~/.ssh/id_ed25519, ~/.ssh/config)
   ├── VS Code (Remote - SSH)
   │
   └── (TCP 22 / Ed25519) ──> [Debian 12: debserver (192.168.1.33)]
