@@ -13,22 +13,15 @@ This module standardizes a professional headless engineering workflow:
 
 ## Architectural Layout
 
-```mermaid
-flowchart TD
-    subgraph Client["Windows 11 Client (Workstation)"]
-        direction TB
-        A["Win32 OpenSSH Client<br/>~/.ssh/id_ed25519 & config"] --> B["Visual Studio Code<br/>Local GUI Renderer"]
-        B --> C["Remote - SSH Extension"]
-    end
-
-    subgraph Server["Headless Debian Host: debserver (192.168.1.33)"]
-        direction TB
-        D["OpenSSH Daemon<br/>/usr/sbin/sshd"] --> E["Key Store<br/>~/.ssh/authorized_keys 0600"]
-        D --> F["Remote Agent<br/>~/.vscode-server/"]
-        F --> G["Workspace Monorepo<br/>/root/homelab LF enforced"]
-    end
-
-    C -- "Encrypted Transport (TCP 22 / Ed25519)" --> D
+```text
+[Windows 11 Workstation]
+  ├── Win32 OpenSSH (~/.ssh/id_ed25519, ~/.ssh/config)
+  ├── VS Code (Remote - SSH)
+  │
+  └── (TCP 22 / Ed25519) ──> [Debian 12: debserver (192.168.1.33)]
+                                ├── OpenSSH Server (/root/.ssh/authorized_keys: 0600)
+                                ├── VS Code Server (~/.vscode-server/)
+                                └── Monorepo (/root/homelab, LF enforced)
 ```
 
 
