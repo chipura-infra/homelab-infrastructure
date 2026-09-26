@@ -39,7 +39,8 @@ Production-grade homelab repository documenting hands-on implementations of syst
 │       ├── valid-sample.yml
 │       └── README.md
 └── README.md
-Tech Stack
+```
+## Tech Stack
 Workstation & Toolchain: Visual Studio Code Remote-SSH, OpenSSH, PowerShell, Git CLI, Ed25519
 
 CI/CD & Code Quality: GitHub Actions, yamllint, ansible-lint
