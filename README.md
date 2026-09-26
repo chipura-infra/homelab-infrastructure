@@ -1,4 +1,3 @@
-```markdown
 # Enterprise Infrastructure & DevOps Homelab
 
 Production-grade homelab repository documenting hands-on implementations of system administration, directory services, containerized monitoring, configuration management, and automated continuous integration.
@@ -7,17 +6,17 @@ Production-grade homelab repository documenting hands-on implementations of syst
 
 ## Infrastructure Modules
 
-* **[Lab 00: Secure Remote Workspace & Workstation Toolchain](labs/lab00-remote-workspace/)**
+* [Lab 00: Secure Remote Workspace & Workstation Toolchain](labs/lab00-remote-workspace/)
   * Headless engineering environment standardization via VS Code Remote SSH, Ed25519 asymmetric cryptography, OpenSSH client hardening, and cross-platform line-ending normalization (`.gitattributes`).
-* **[Lab 01: Host Baseline & Linux Hardening](labs/lab01-linux-baseline/)**
+* [Lab 01: Host Baseline & Linux Hardening](labs/lab01-linux-baseline/)
   * Debian 12 minimal installation, LVM storage topology, UFW firewall policy, and SSH hardening.
-* **[Lab 02: Enterprise Active Directory Integration](labs/lab02-ad-integration/)**
+* [Lab 02: Enterprise Active Directory Integration](labs/lab02-ad-integration/)
   * Windows Server 2022 domain controller deployment, SSSD authentication bridge, Kerberos ticketing, and Wireshark packet analysis.
-* **[Lab 03: Production Observability Stack](labs/lab03-monitoring/)**
+* [Lab 03: Production Observability Stack](labs/lab03-monitoring/)
   * Containerized metrics pipeline using Docker Compose, Prometheus scraping engine, Node Exporter host telemetry, Grafana dashboards, and Nginx reverse proxy.
-* **[Lab 04: Infrastructure Automation via Ansible](labs/lab04-ansible/)**
+* [Lab 04: Infrastructure Automation via Ansible](labs/lab04-ansible/)
   * Agentless multi-node provisioning, Dockerized target topology, ed25519 keypair authentication, Jinja2 fact templating, and idempotency verification (`changed=0`).
-* **[Lab 05: Automated CI/CD Quality Gate & Linting](labs/lab05-ci-pipeline/)**
+* [Lab 05: Automated CI/CD Quality Gate & Linting](labs/lab05-ci-pipeline/)
   * Automated GitHub Actions pipeline for static code analysis, YAML validation, Ansible syntax checking, and pre-deployment quality gating.
 
 ---
