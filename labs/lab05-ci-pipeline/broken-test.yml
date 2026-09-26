@@ -1,0 +1,8 @@
+---
+version: "3"
+services:
+  web:
+   image: nginx:latest
+  ports:
+      - "80:80"
+  broken_syntax: [missing_bracket

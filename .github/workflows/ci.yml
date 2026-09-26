@@ -1,0 +1,35 @@
+name: CI Quality Gate
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint-and-validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Linting Tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install yamllint ansible-lint ansible-core
+
+      - name: Lint YAML Files
+        run: |
+          yamllint -d "{extends: relaxed, rules: {line-length: {max: 160}}}" .
+
+      - name: Validate Ansible Syntax
+        run: |
+          if [ -d "labs/lab04-ansible/playbooks" ]; then
+            ansible-playbook --syntax-check labs/lab04-ansible/playbooks/*.yml -i labs/lab04-ansible/inventories/hosts.ini
+          fi
