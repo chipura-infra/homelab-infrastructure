@@ -47,14 +47,20 @@ This module establishes an automated Continuous Integration (CI) Quality Gate us
 ### 1. Controlled Lint Failure Detection
 Automated pipeline catching a deliberately broken YAML definition (`broken-test.yml`), failing the build, and pinning the exact syntax discrepancy:
 
-![Lint Failure](assets/01-github-actions-failed-lint.png)
+<a href="assets/01-github-actions-failed-lint.png" target="_blank">
+  <img src="assets/01-github-actions-failed-lint.png" alt="Lint Failure" width="850">
+</a>
 
 ### 2. Successful Pipeline Execution
 Verified build status confirming that all repository files passed static checks and syntax validation:
 
-![Pipeline Success](assets/02-github-actions-fixed-pass.png)
+<a href="assets/02-github-actions-fixed-pass.png" target="_blank">
+  <img src="assets/02-github-actions-fixed-pass.png" alt="Pipeline Success" width="850">
+</a>
 
 ### 3. Workflow Step Details
 Detailed execution log demonstrating clean passes across all static analysis stages:
 
-![Step Details](assets/03-workflow-execution-details.png)
+<a href="assets/03-workflow-execution-details.png" target="_blank">
+  <img src="assets/03-workflow-execution-details.png" alt="Step Details" width="850">
+</a>
