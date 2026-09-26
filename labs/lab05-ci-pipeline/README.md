@@ -29,20 +29,32 @@ This module establishes an automated Continuous Integration (CI) Quality Gate us
       ▼                      ▼
   [Pass: Exit 0]        [Fail: Exit 1]
   Merged to Main        Merge Blocked & Alerts Sent
-Key Configurations
-1. Workflow Pipeline (.github/workflows/ci.yml)
-on: push: branches: [ main ]: Automated trigger hook for immediate feedback loop on code submission.
+```
 
-yamllint -d "{extends: relaxed, rules: {line-length: {max: 160}}}" .: Structural syntax audit preventing silent YAML parsing breaks while allowing clean configuration comments.
+---
 
-ansible-playbook --syntax-check: Pre-flight task tree inspection verifying valid Ansible schema and variable mappings without executing real state changes.
+## Key Configurations
 
-Verification & Artifacts
-1. Controlled Lint Failure Detection
-Automated pipeline catching a deliberately broken YAML definition (broken-test.yml), failing the build, and pinning the exact syntax discrepancy:
+### 1. Workflow Pipeline (`.github/workflows/ci.yml`)
+* `on: push: branches: [ main ]`: Automated trigger hook for immediate feedback loop on code submission.
+* `yamllint -d "{extends: relaxed, rules: {line-length: {max: 160}}}" .`: Structural syntax audit preventing silent YAML parsing breaks while allowing clean configuration comments.
+* `ansible-playbook --syntax-check`: Pre-flight task tree inspection verifying valid Ansible schema and variable mappings without executing real state changes.
 
-2. Successful Pipeline Execution
+---
+
+## Verification & Artifacts
+
+### 1. Controlled Lint Failure Detection
+Automated pipeline catching a deliberately broken YAML definition (`broken-test.yml`), failing the build, and pinning the exact syntax discrepancy:
+
+![Lint Failure](assets/01-github-actions-failed-lint.png)
+
+### 2. Successful Pipeline Execution
 Verified build status confirming that all repository files passed static checks and syntax validation:
 
-3. Workflow Step Details
+![Pipeline Success](assets/02-github-actions-fixed-pass.png)
+
+### 3. Workflow Step Details
 Detailed execution log demonstrating clean passes across all static analysis stages:
+
+![Step Details](assets/03-workflow-execution-details.png)
